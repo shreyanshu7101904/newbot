@@ -13,5 +13,18 @@
                 <output value="Nice to meet you, $UserName!"/> <!-- Using the placeholder in output -->
             </input>
         </context>
+        <context>
+            <input pattern="(help|-h)*">
+                    <sample>
+                      <item>schedule</item>
+                      <item>date</item>
+                      <item>news</item>
+                    </sample>
+                <output value="help for $helpvalue" if="full($helpvalue)"/>
+                <context if="empty($helpvalue)" modal="true">
+                    <output value="choose the option"/>
+                </context>
+            </input>
+        </context>
     </input>
 </context>
